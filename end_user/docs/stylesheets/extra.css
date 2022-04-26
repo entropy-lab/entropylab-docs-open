@@ -1,0 +1,11 @@
+:root {
+  --md-primary-fg-color: #404044;
+  --md-accent-fg-color: #2ccbe5;
+  --md-typeset-a-color: #2ccbe5;
+}
+.md-header__topic:first-child {
+  font-weight: 700;
+}
+.md-nav__item .md-nav__link--active {
+  --md-typeset-a-color: #2ccbe5;
+}
