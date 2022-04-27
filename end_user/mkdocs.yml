@@ -1,10 +1,23 @@
-site_name: Entropylab Documentation
+site_name: EntropyLab
+
+site_url: https://www.entropy-lab.io
+site_author: EntropyLab contributors
+site_description: >-
+  Lab control and management for modular and scallable creation of quantum 
+  workflows. Open-source enterprise-ready solution.
+
+# Repository
+repo_name: entropy-lab/entropylab-docs
+repo_url: https://github.com/entropy-lab/entropylab-docs
 
 theme:
   name: material
   custom_dir: overrides
   language: en
   logo: assets/logo.png
+  font:
+    text: Roboto
+    code: Roboto Mono
   favicon: assets/logo.png
   palette:
     scheme: entropy
@@ -13,6 +26,8 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.indexes
+    - navigation.tabs
+    - minify_html: true
   icon:
     repo: fontawesome/brands/github
     admonition:
@@ -28,17 +43,27 @@ theme:
       bug: octicons/bug-16
       example: octicons/beaker-16
       quote: octicons/quote-16
-repo_url: https://github.com/entropy-lab/entropylab/
-repo_name: entropy-lab/entropylab
+
 extra_css:
   - stylesheets/extra.css
 extra:
   generator: false
 
 nav:
-  - Getting started: "getting_started.md"
-  - QuAM: "quam/overview.md"
-  - ParameterStore: "paramstore/overview.md"
+  - Home: index.md
+  - "EntropyHub & Flame":
+    - "Overview": "entropyhub_and_flame/index.md"
+    - "Getting started": "entropyhub_and_flame/getting_started.md"
+    - NodeIO: "entropyhub_and_flame/nodeio/overview.md"
+    - Workflow: "entropyhub_and_flame/workflow/overview.md"
+    - Observability: "entropyhub_and_flame/observability/overview.md"
+    - Management of records: "entropyhub_and_flame/management_record/overview.md"
+    - Guide for contributors: "entropyhub_and_flame/contribute/overview.md"
+  - Pipeline:
+    - Getting started: "getting_started.md"
+  - QuAM:
+    - Overview: "quam/overview.md"
+    - ParameterStore: "paramstore/overview.md"
 #  - Guide for contributors: "contribute/overview.md"
 
 markdown_extensions:
