@@ -85,6 +85,8 @@ markdown_extensions:
   - pymdownx.superfences
   - md_in_html
   - abbr
+  - toc:
+      permalink: true
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.highlight:
