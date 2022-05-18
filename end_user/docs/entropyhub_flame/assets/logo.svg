@@ -10,7 +10,7 @@
    style="enable-background:new 0 0 102 38.3;"
    xml:space="preserve"
    sodipodi:docname="logo.svg"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,12 +25,12 @@
    inkscape:pagecheckerboard="0"
    showgrid="false"
    inkscape:zoom="4.3778229"
-   inkscape:cx="78.235235"
+   inkscape:cx="78.235234"
    inkscape:cy="54.364922"
    inkscape:window-width="1920"
    inkscape:window-height="1011"
    inkscape:window-x="0"
-   inkscape:window-y="1529"
+   inkscape:window-y="32"
    inkscape:window-maximized="1"
    inkscape:current-layer="Layer_1" />
 <style
@@ -43,9 +43,9 @@
 	.st4{fill:#FFDB2C;}
 </style>
 <rect
-   style="fill:#ffffff;stroke-width:1.00599;stroke-linecap:round;stroke-linejoin:round"
+   style="fill:#e5e5e5;stroke-width:1.00599;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
    id="rect868"
-   width="101.75846"
+   width="101.758"
    height="38.365459"
    x="0.23911683"
    y="0.19579765"

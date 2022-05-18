@@ -20,7 +20,14 @@ theme:
     code: Roboto Mono
   favicon: assets/logo.png
   palette:
-    scheme: entropy
+    - scheme: entropy-bright
+      toggle:
+        icon: material/toggle-switch 
+        name: Switch to dark mode
+    - scheme: entropy-dark 
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
   features:
     - search
     - navigation.instant
