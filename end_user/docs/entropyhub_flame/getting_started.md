@@ -6,35 +6,45 @@ are setup in default installation with a few commands. Advanced users on the
 other hand might be interested in advanced modular installations that are also
 supported.
 
-## Installing Docker compose
+## Simple installation
 
-Follow official Docker Compose installation documentation for your own operating
-system:
+This is for method that installs all components of EntropyHub on a single-machine.
+Choose installation depending if you are using EntropyHub or 
+developing it:
 
-[https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
+=== "User of EntropyHab and Flame"
+    In the folder where you want to setup entropyhub and project files do from terminal
 
-## Simple single-machine installation
+    ```
+    pip install entropyhub
+    python -m entropyhub
+    ```
 
-For now, installation is directly from GitHub:
-
-```
-git clone --depth 1 https://github.com/entropy-lab/entropy-hub.git
-cd entropy-hub
-docker-compose up
-```
+=== "Developer/Contributor"
+    ```bash
+    git clone --depth 1 https://github.com/entropy-lab/entropy-hub.git
+    cd entropy-hub
+    pip install --upgrade --force-reinstall ./entropylab ./entropyhub
+    python -m entropyhub --build
+    ```
 
 When starting the first time, this will take some time since the system is being
 downloaded and initialised. Once the terminal information stops changing, open
 `http://localhost` in your web-browser.
 
 To switch off entropy press ++ctrl+c++ in terminal once, and wait for the system
-to switch off. To run again Entropy, it is enough to run `docker-compose up`
-again.
+to switch off. To run again EntropyHub, it is enough to run `python -m entropyhub`
+in the same folder again.
 
 ## Running an example
 
 Open in the web browser `http://localhost`. Open Experiments panel. Code editor
-will open. In terminal window type
+will open. Left-Click on `main_pc` on the side menu and
+select `Open remote SSH terminal` to open terminal.
+
+![How to open terminal](../assets/open_terminal.png)
+
+In terminal window type
 
 ```
 python3 -m entropylab.flame.example.simple
@@ -55,12 +65,3 @@ To start empty project start
 python3 -m entropylab.flame.template.empty
 ```
 
-## Advanced installations
-
-### Central data store
-
-### Runtime outside of container
-
-### Runtime consisting of multiple machines
-
-### Single front-end, multiple runtimes
