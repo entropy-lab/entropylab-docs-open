@@ -269,11 +269,10 @@ db.get_results()
 
 # The Entropy Environment
 
-By \"device management\" what is meant is more than just the set of all
-instruments you use in the lab. A *device* in this context can be many
+By \"resource management\" what is meant is more than just the set of all
+instruments you use in the lab. A *resource* in this context can be many
 things. For example, it could be some calculation that is run on a
-remote compute resource, it may be the object representing a web-based
-GUI you are working with or, indeed, it can be your DC voltage source.
+remote compute resource or, indeed, it can be your DC voltage source.
 Sharing these resources between nodes in Entropy is easy. The nodes in
 an Entropy graph have access to resources automatically, and there is a
 centralized store in which you can register the resources that are
@@ -290,41 +289,19 @@ importing it.
 As an example, we first build a class representing some device, say an
 oscilloscope.
 
-``` {.python}
+```.python
 class my_scope:
     def __init__(self,name, ip):
         self.name=name
         self.ip=ip      
 ```
 
-Typically you would start from an existing driver you already have, or a
-contributed one. You can use exising drivers from the QCodes library
-using our wrapper class, more details on this in seperate tutorial.
+Typically, you would start from an existing driver you already have, or a
+contributed one. 
 
-We start our example by deleting our DB file from before and setting up
-a new lab.
-
-Warning: This is destructive to any work we\'ve done so far so if you
-want to keep the existing DB please copy the file over.
-
-Note that setting up a lab is only done once under normal circumstances.
-:::
-
-::: {.cell .code}
-``` {.python}
-db_file='docs_cache/tutorial.db'
-if os.path.exists(db_file):
-  os.remove(db_file)
-db = SqlAlchemyDB(db_file)
-lab = LabResources(db)
-
-```
-:::
-
-::: {.cell .markdown}
 ### Registering resources
 
-We can now **register** our resources (our oscilloscope) to the lab. The
+We can **register** our resources (our oscilloscope) to the lab. The
 act of registration adds a resource to the ones available to us in the
 lab.
 
@@ -333,13 +310,11 @@ now, we can point out just a few. The `register_resource` method takes a
 `resource_class` argument, note that this is the **name** of the class
 and not an instance. There are then `args` and `kwargs` we pass, which
 are the *positional* arguments passed to the constructor of our resource
-and the *keyword* (named) arguments we pass. We don\'t have do use both,
+and the *keyword* (named) arguments we pass. We don't have to use both,
 we can use just one or the other or (as in the example below) a
 combination of both.
-:::
 
-::: {.cell .code}
-``` {.python}
+```.python
 class my_scope:
     def __init__(self,name, ip):
         self.name=name
@@ -351,28 +326,19 @@ lab.register_resource(name="my_scope", resource_class=my_scope,args=["gals scope
 
 ```
 
-::: {.output .stream .stdout}
-    2021-05-09 22:13:20,016 - entropy - WARNING - instrument my_scope is not an entropylab Resource and additional metadata won't be saved
-    2021-05-09 22:13:20,017 - entropy - WARNING - could not save source of my_scope
-:::
-:::
-
-::: {.cell .markdown}
 If you now try to run the cell from above again, this will fail. Why is
 that? Because you are trying to register an existing device to the DB.
 The `LabResources` API supports adding and removing resources from the
 lab and this failing behaviour is intentional. It is meant to help
-preventing an accidental overwrite of a device.
+to prevent an accidental overwrite of a device.
 
 ### Running an experiment with a resource
 
-Let\'s now run an experiment the uses a registered resource. We need to
+Let's now run an experiment the uses a registered resource. We need to
 start an `experiment_resource` instance (and specify the db to which it
 writes), and then import the resource we want to use from the lab.
-:::
 
-::: {.cell .code}
-``` {.python}
+```.python
 experiment_resources = ExperimentResources(db)
 experiment_resources.import_lab_resource('my_scope')
 
@@ -387,40 +353,26 @@ experiment_with_instrument = Graph(experiment_resources, {node1}, "run_a") #No r
 handle_with_instrument = experiment_with_instrument.run()
 ```
 
-::: {.output .stream .stdout}
+```
     2021-05-09 22:49:55,134 - entropy - INFO - Running node <PyNode> first_node
     This is scope:gals scope
     2021-05-09 22:49:55,205 - entropy - INFO - Finished entropy experiment execution successfully
-:::
-:::
+```
 
-::: {.cell .markdown}
 As you can see the `identify` method was called as expected.
-:::
 
-::: {.cell .markdown}
 # Entropy with QUA
 
 Entropy is developed to be a general purpose lab manager. It is however
 developed primarily by [Quantum Machines](www.quantum-machines.co),
-creators of the Quantum Orchastration Platform and the QUA programming
+creators of the Quantum Orchestration Platform and the QUA programming
 language.
 
 Support of QUA is going to be extended in coming versions, primarily via
 Entropy extensions. However, you can already run QUA code by using the
-general purpose PyNode. This is shown in the following basic exmaple
-:::
+general purpose PyNode. This is shown in the following basic example
 
-::: {.cell .code}
-``` {.python}
-#first we delete the DB file again
-db_file='docs_cache/tutorial.db'
-if os.path.exists(db_file):
-  os.remove(db_file)
-db = SqlAlchemyDB(db_file)
-lab = LabResources(db)
-
-#we now import the QUA package
+```.python
 from qm.QuantumMachinesManager import QuantumMachinesManager
 from qm.qua import *
 from qm import SimulationConfig
@@ -430,17 +382,13 @@ lab.register_resource('qmm',QuantumMachinesManager)
 experiment_resources = ExperimentResources(db)
 experiment_resources.import_lab_resource('qmm')
 ```
-:::
 
-::: {.cell .markdown}
-After some intro house keeping, we set up a two-node graph. A first node
+After some initial housekeeping, we set up a two-node graph. A first node
 to generate the config and pass it on, and a second node to run the QUA
 code. We write the operation of these two PyNodes in the two following
 functions:
-:::
 
-::: {.cell .code}
-``` {.python}
+```.python
 def get_config():
     config = {
         "version": 1,
@@ -486,21 +434,17 @@ def QUA_node_action(context: EntropyContext,config):
     samples1 = samples.con1.analog['1']
     return {"samples": samples1}
 ```
-:::
 
-::: {.cell .markdown}
 Finally, we can set up the nodes and graph and run our experiment:
-:::
 
-::: {.cell .code}
-``` {.python}
+```.python
 config_node = PyNode("config_node", get_config,output_vars={'config'})
 qua_node = PyNode("QUA_node", QUA_node_action,input_vars={'config':config_node.outputs['config']},output_vars={'samples'})
 experiment_with_QUA = Graph(experiment_resources, {config_node,qua_node}, "a QUA run")
 handle_with_QUA = experiment_with_QUA.run()
 ```
 
-::: {.output .stream .stdout}
+```
     2021-05-09 23:47:03,095 - qm - INFO - Performing health check
     2021-05-09 23:47:03,103 - qm - INFO - Health check passed
     2021-05-09 23:47:03,122 - entropy - INFO - Running node <PyNode> config_node
@@ -509,19 +453,13 @@ handle_with_QUA = experiment_with_QUA.run()
     2021-05-09 23:47:03,246 - qm - INFO - Flags: 
     2021-05-09 23:47:03,248 - qm - INFO - Simulating Qua program
     2021-05-09 23:47:03,502 - entropy - INFO - Finished entropy experiment execution successfully
-:::
-:::
+```
 
-We can plot the result we obtained from running our experiment. Graph
-generation will be the first this the next Entropy version will
-automate.
+We can plot the result we obtained from running our experiment. This is done automatically in the web GUI,
+but you can manipulate the data manually.
 
 ```python
 plt.figure()
 plt.plot(handle_with_QUA.results.get_results()[1].data)
 plt.show()
 ```
-
-
-
-
