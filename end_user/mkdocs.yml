@@ -58,14 +58,14 @@ extra:
 
 nav:
   - Home: index.md
-  - "EntropyHub & Flame":
-    - "Overview": "entropyhub_flame/index.md"
-    - "Getting started": "entropyhub_flame/getting_started.md"
-    - NodeIO: "entropyhub_flame/nodeio/overview.md"
-    - Workflow: "entropyhub_flame/workflow/overview.md"
-    - Observability: "entropyhub_flame/observability/overview.md"
-    - Management of records: "entropyhub_flame/management_record/overview.md"
-    - Guide for contributors: "entropyhub_flame/contribute/overview.md"
+#  - "EntropyHub & Flame":
+#    - "Overview": "entropyhub_flame/index.md"
+#    - "Getting started": "entropyhub_flame/getting_started.md"
+#    - NodeIO: "entropyhub_flame/nodeio/overview.md"
+#    - Workflow: "entropyhub_flame/workflow/overview.md"
+#    - Observability: "entropyhub_flame/observability/overview.md"
+#    - Management of records: "entropyhub_flame/management_record/overview.md"
+#    - Guide for contributors: "entropyhub_flame/contribute/overview.md"
   - Pipeline:
     - Getting started: "pipeline/getting_started.md"
   - QuAM:

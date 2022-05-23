@@ -1,0 +1,29 @@
+
+
+[data-md-color-scheme="entropy-bright"] {
+  --md-primary-fg-color: #404044;
+  --md-accent-fg-color: #0FB0CB;
+  --md-typeset-a-color: #0FB0CB;
+  --md-footer-bg-color: #404044;
+  --md-default-bg-color:#E5E5E5;
+}
+[data-md-color-scheme="entropy-dark"] {
+  --md-primary-fg-color: #404044;
+  --md-accent-fg-color: #0FB0CB;
+  --md-typeset-a-color: #0FB0CB;
+  --md-footer-bg-color: #404044;
+  --md-default-bg-color:#2B2C32;
+  --md-code-bg-color:#323339;
+  --md-default-fg-color:white;
+  --md-default-fg-color--light: rgba(255,255,255,.54);
+  --md-default-fg-color--lighter: rgba(255,255,255,.32);
+  --md-typeset-kbd-color: #323339;
+  --md-typeset-kbd-accent-color: #2B2C32;
+  --md-code-fg-color: white;
+}
+.md-header__topic:first-child {
+  font-weight: 700;
+}
+.md-nav__item .md-nav__link--active {
+  --md-typeset-a-color: #2ccbe5;
+}

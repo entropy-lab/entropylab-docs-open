@@ -1,7 +1,7 @@
 # Getting started
 
-Entropy is a lab workflow management project built for streamlining running quantum
-information processing experiments. 
+Entropy pipeline is a python package for lab workflow management.
+It is built for streamlining running quantum information processing experiments. 
 
 Entropy's goal is to solve a few major hurdles in experiment design: 
 
