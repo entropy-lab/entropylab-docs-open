@@ -66,11 +66,15 @@ nav:
 #    - Observability: "entropyhub_flame/observability/overview.md"
 #    - Management of records: "entropyhub_flame/management_record/overview.md"
 #    - Guide for contributors: "entropyhub_flame/contribute/overview.md"
+  - Entropy CLI:
+      - Getting started: "entropy-cli/getting_started.md"
+      - An entropy project: "entropy-cli/project.md"
+      - The dashboard: "entropy-cli/gui.md"
   - Pipeline:
     - Getting started: "pipeline/getting_started.md"
-  - QuAM:
-    - Overview: "quam/overview.md"
-    - ParameterStore: "paramstore/overview.md"
+#  - QuAM:
+#    - Overview: "quam/overview.md"
+  - ParameterStore: "paramstore/overview.md"
 #  - Guide for contributors: "contribute/overview.md"
 
 markdown_extensions:
