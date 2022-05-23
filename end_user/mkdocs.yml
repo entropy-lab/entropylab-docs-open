@@ -72,6 +72,8 @@ nav:
       - The dashboard: "entropy-cli/gui.md"
   - Pipeline:
     - The experiment graph: "pipeline/getting_started.md"
+    - The context: "pipeline/entropy_context.md"
+    - Entropy & QUA: "pipeline/entropy_qua.md"
 #  - QuAM:
 #    - Overview: "quam/overview.md"
   - ParameterStore: "paramstore/overview.md"
