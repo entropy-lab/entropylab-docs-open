@@ -39,8 +39,15 @@ The nice thing about the second style is that by implementing this, we are able 
 the name of the paramstore object followed by a period (.) all key names are suggested (when using a modern IDE).
 
 ## Tags
-A key can be associated with a tag
+A key can be associated with a tag as follows 
 
+```python
+    target.add_tag("tag", "foo")
+```
+
+You can then list the keys associated with a specific tag. This allows for the paramstore to have more strucutre. 
+Instead of a flat key-value collection, multiple keys can be combined. An example would be to have all keys associated 
+with a specific qubit to share a tag e.g. `qubit1`. 
 
 ## ParamStore and the entropy pipeline
 

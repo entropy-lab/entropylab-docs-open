@@ -7,9 +7,9 @@ file in your web browser.
 If building from source to update documentation (see
 [here](https://www.mkdocs.org/) how to write documentation):
 
-1. Make sure you have dependancies: `pip install mkdocs mkdocs-material`
+1. Make sure you have dependencies: `pip install mkdocs mkdocs-material`
 
 2. Run in `./docs/end_user` directory `mkdocs build` command. Open then
-   `./docs/end_user/index.html`. Alernativelly run `mkdocs serve`. This serves
+   `./docs/end_user/index.html`. Alternatively run `mkdocs serve`. This serves
    documentation through server that reloads on file changes (useful when
    editing documentation).
