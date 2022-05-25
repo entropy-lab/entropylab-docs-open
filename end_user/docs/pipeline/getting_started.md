@@ -43,10 +43,19 @@ You can now attach the node to a graph (containing just one node)
 experiment = Graph(resources=None, graph={node1}, story="run_a") 
 ```
 
+
+
 There are some explanations in order here. You can see that this graph
 has the `resources` parameter set to `None`, but we have not defined
 resources yet. We also didn't say anything about the `story` associated
 with a graph. But let's ignore that for now.
+
+!!! warning
+
+    If you don't add resources, no resutls are saved to the DB. 
+    At the moment there is no default DB. 
+    Tell us if you think this is the wrong choice, but we think it makes sense as sometimes you are just screwing around 
+    in the lab. 
 
 We can now run the graph, saving the results to `handle`
 
