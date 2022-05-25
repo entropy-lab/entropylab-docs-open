@@ -74,10 +74,8 @@ nav:
     - The experiment graph: "pipeline/getting_started.md"
     - The context: "pipeline/entropy_context.md"
     - Entropy & QUA: "pipeline/entropy_qua.md"
-    - Plotting: "pipeline/plotting.md"
-#    - API: "pipeline/API.md"
-#  - QuAM:
-#    - Overview: "quam/overview.md"
+  - QuAM:
+    - Overview: "quam/overview.md"
   - ParameterStore: "paramstore/overview.md"
 #  - Guide for contributors: "contribute/overview.md"
 
