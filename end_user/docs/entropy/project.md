@@ -2,11 +2,24 @@
  
 An entropy project is defined as a directory which has a hidden subdirectory inside called `.entropy`. 
 
+In general, this folder has the following structure:
+
+```
+📂.entropy
+ ┣ 📜params.json
+ ┣ 📜entropy.db
+ ┣ 📂hdf5
+ ┃ ┣ 📜1.hdf5
+ ┃ ┣ 📜2.hdf5
+ ┗ ┗ 📜3.hdf5
+```
+
+
 To initialize a new project, open the command line and change into the directory you wish to work from.
 Then type `entropy init`. 
 
 This generates the `.entropy` directory and populates it with a directory called `hdf5`
-and a file called `entropy.db`.
+and a file called `entropy.db`. A `params.json` file is only added after a first parameter is added.
 
 ## The database
 
@@ -21,6 +34,24 @@ it, where the results are etc.
 
 In addition, the database contains information about instruments and other resources you registered. More information 
 about resources can be found in the `Pipeline` section of the documentation.
+
+To connect to a DB that is present in the current working directory (CWD), and using the SqlAlchemy implementation you use the following code: 
+
+```python
+from entropylab import *
+db = SqlAlchemyDB(path='.')
+labResources = ExperimentResources(db)
+```
+
+This searches for the `.entropy` hidden folder in the CWD. If you wish to connect to a DB in a different folder, simply 
+pass the path of the top folder (and not the `.entropy` folder where the DB resides)
+
+## ParamStore database
+
+Entropy comes with [paramStore](../paramstore/overview.md), a tool for working with experimental parameters. 
+The parameter store is located in the `params.json` file in the `.entropy` folder. 
+The Entropy [GUI](gui.md) includes a tool to view and work with the parameter store. This tools searches for the `params.json`
+file which belongs to the folder from which `entropy serve` was called. 
 
 ## HDF5
 

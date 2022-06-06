@@ -1,4 +1,4 @@
-# The Entropy Project and the entropy CLI
+# The Entropy Project and entropy CLI
 
 Entropylab is a python package for lab workflow management.
 It is built for streamlining running quantum information processing experiments. 
@@ -54,7 +54,9 @@ pip install entropylab
 
 ## Testing your installation
 
-In the command line, type `entropy` and press ↩. 
+Entropy ships with a Command Line Interface (CLI). 
+
+To test your installation go to the command line, type `entropy` and press ↩. 
 The following usage description should appear:
 ```
 usage: entropy [-h] [-v] {init,upgrade,serve} ...

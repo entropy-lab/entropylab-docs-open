@@ -66,10 +66,10 @@ nav:
 #    - Observability: "entropyhub_flame/observability/overview.md"
 #    - Management of records: "entropyhub_flame/management_record/overview.md"
 #    - Guide for contributors: "entropyhub_flame/contribute/overview.md"
-  - Entropy CLI:
-      - Getting started: "entropy-cli/getting_started.md"
-      - An entropy project: "entropy-cli/project.md"
-      - The dashboard: "entropy-cli/gui.md"
+  - Entropy:
+      - Getting started: "entropy/getting_started.md"
+      - An entropy project: "entropy/project.md"
+      - The dashboard: "entropy/gui.md"
   - Pipeline:
     - The experiment graph: "pipeline/getting_started.md"
     - The context: "pipeline/entropy_context.md"
