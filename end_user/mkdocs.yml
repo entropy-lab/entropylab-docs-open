@@ -77,8 +77,15 @@ nav:
     - Plotting: "pipeline/plotting.md"
   - QuAM:
     - Overview: "quam/overview.md"
-  - ParameterStore: "paramstore/overview.md"
+    - ParameterStore: "paramstore/overview.md"
+    - API: "paramstore/api.md"
 #  - Guide for contributors: "contribute/overview.md"
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [.]
 
 markdown_extensions:
   - pymdownx.emoji:
@@ -112,3 +119,5 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+
