@@ -10,13 +10,19 @@ receives a unique identified, but in addition can be labeled with a non-unique t
 The paramStore interface is defined such that we can eventually have different implementations of varying complexity. 
 We may wish to implement a paramstore with some powerful DB like mongoDB or PostgreSQL but for now, we have a simple text
 based implementation. This first implementation is the `InProcessParamStore`. You can use it as follows
+
 ```python
 from entropylab.api.in_process_param_store import InProcessParamStore
+db_dir = ‘.’
+db_name = ‘params.json’
+db_path = os.path.join(db_dir, db_name)
+params = InProcessParamStore(db_path)
 params =InProcessParamStore()
 ```
-If no path is supplied to the constructor of this class, no persistence will occur. Once the process dies, the param store dies. 
-However, if a path is supplied a persistent text file containing the DB will be generated.  
 
+If no path is supplied to the constructor of this class, no persistence will occur. Once the process dies, the param store dies. 
+However, if a path is supplied a persistent json file `params.json` containing the DB will be generated in the current working directory.  
+To initialize a paramstore in the current entropy directory, you can also initialize the paramstore as follows: 
 ```python
 from entropylab.api.in_process_param_store import InProcessParamStore
 params =InProcessParamStore('.')
@@ -42,7 +48,12 @@ the name of the paramstore object followed by a period (.) all key names are sug
 A key can be associated with a tag as follows 
 
 ```python
-    target.add_tag("tag", "foo")
+    params.add_tag(‘qubit1’, ‘a’)
+```
+Multiple tags can be associated with the same key:
+
+```python
+    params.add_tag(‘qubit1’, ‘b’)
 ```
 
 You can then list the keys associated with a specific tag. This allows for the paramstore to have more strucutre. 
