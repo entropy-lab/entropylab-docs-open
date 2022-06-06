@@ -77,11 +77,38 @@ params.commit('this is a label')
 ```
 This returns the commit hash ID. 
 
+You can then list the exiting commits  
+```python
+params.list_commits()
+```
+Which returns a list of commit Metadata objects.
 
+Because the commit label need not be unique, revert to any previous commit is done using its unique ID.
 
+Reverting to the most recent commit can be done, e.g. by: 
+
+```python
+params.checkout(params.list_commits()[-1].id)
+```
 
 ## The temp commit
 
+The paramstore has one special commit which can be used as a temporary store. 
+This temporary state can be accessed by using
+
+```python
+params.save_temp()
+```
+or 
+
+```python
+params.load_temp()
+```
+
+If the paramstore is at a dirty state, saving to temp does not change this.
+
+The temp state can be used as a means of state sharing between elements that use the paramstore and was mostly introduced to
+facilitate the development of [QuAM](../quam/overview.md).
 
 
 ## ParamStore and the entropy pipeline
