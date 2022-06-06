@@ -59,6 +59,30 @@ Multiple tags can be associated with the same key:
 You can then list the keys associated with a specific tag. This allows for the paramstore to have more strucutre. 
 Instead of a flat key-value collection, multiple keys can be combined. An example would be to have all keys associated 
 with a specific qubit to share a tag e.g. `qubit1`. 
+## Checkout and commit into the paramstore
+
+If a paramstore has had changes applied to it since a last commit, it is in a dirty state. 
+
+You can check this as follows: 
+
+```python
+params.new_key=1
+params.is_dirty
+```
+This should evaluate to `True`. 
+
+You can then commit changes by calling the method with a commit label: 
+```python
+params.commit('this is a label')
+```
+This returns the commit hash ID. 
+
+
+
+
+## The temp commit
+
+
 
 ## ParamStore and the entropy pipeline
 
