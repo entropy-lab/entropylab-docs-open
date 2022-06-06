@@ -50,8 +50,12 @@ pass the path of the top folder (and not the `.entropy` folder where the DB resi
 
 Entropy comes with [paramStore](../paramstore/overview.md), a tool for working with experimental parameters. 
 The parameter store is located in the `params.json` file in the `.entropy` folder. 
-The Entropy [GUI](gui.md) includes a tool to view and work with the parameter store. This tools searches for the `params.json`
+The Entropy [GUI](gui.md) includes a tool to view and work with the parameter store. This tool searches for the `params.json`
 file which belongs to the folder from which `entropy serve` was called. 
+
+!!! warning
+
+    Only the parameter store saved in `.entropy/params.json` will show up in the web GUI. 
 
 ## HDF5
 
