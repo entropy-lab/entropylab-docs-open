@@ -78,7 +78,7 @@ nav:
   - QuAM:
     - Overview: "quam/overview.md"
     - ParameterStore: "paramstore/overview.md"
-    - API: "paramstore/api.md"
+#    - API: "paramstore/api.md"
 #  - Guide for contributors: "contribute/overview.md"
 plugins:
   - search
