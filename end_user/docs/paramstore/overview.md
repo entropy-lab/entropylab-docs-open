@@ -55,10 +55,38 @@ Multiple tags can be associated with the same key:
 ```python
     params.add_tag(‘qubit1’, ‘b’)
 ```
+Given the following paramstore:
 
-You can then list the keys associated with a specific tag. This allows for the paramstore to have more strucutre. 
-Instead of a flat key-value collection, multiple keys can be combined. An example would be to have all keys associated 
-with a specific qubit to share a tag e.g. `qubit1`. 
+```python
+params = InProcessParamStore()
+
+params.a=1
+params.b=2
+params.add_tag('qubit1','a')
+params.add_tag('res_1','a')
+params.add_tag('qubit1','b')
+
+
+```
+You can query for tags associated with a specific key as follows:
+
+```python
+params.list_tags_for_key('a')
+```
+
+Which should yield `['qubit1', 'res_1']`. Or query for a all keys associated with a tag as follows: 
+```python
+params.list_keys_for_tag('qubit1')
+```
+
+Which should yield `['a', 'b']`.
+
+
+The tag mechanism allows the paramstore to have more structure. Instead of a flat key-value collection,
+multiple keys can be combined. 
+
+
+
 ## Checkout and commit into the paramstore
 
 If a paramstore has had changes applied to it since a last commit, it is in a dirty state. 
@@ -109,6 +137,26 @@ If the paramstore is at a dirty state, saving to temp does not change this.
 
 The temp state can be used as a means of state sharing between elements that use the paramstore and was mostly introduced to
 facilitate the development of [QuAM](../quam/overview.md).
+
+## Tracking a parameter across commits
+
+As parameter values change across commits, and indeed across experimental steps and/or time, it's likely you would like to track them. 
+Paramstore gives a convenient way to do this with the `list_values` methods. It returns all values of a key across commits in a pandas dataframe form.
+This makes plotting particularly simple. 
+
+```python
+import plotly.express as px
+import numpy as np 
+params = InProcessParamStore()
+for val in range(10):
+    params.a=np.random.uniform()
+    params.commit(f'{val}')
+res = params.list_values('a')
+
+px.line(res,y='value')
+```
+Which should give you a result resembling the following: 
+![values](../assets/paramstore_plotting.png)
 
 
 ## ParamStore and the entropy pipeline
