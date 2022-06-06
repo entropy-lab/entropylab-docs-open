@@ -159,11 +159,14 @@ Which should give you a result resembling the following:
 ![values](../assets/paramstore_plotting.png)
 
 
-## ParamStore and the entropy pipeline
+[//]: # (## ParamStore and the entropy pipeline)
 
-A param store can be saved as a resource for an entropy graph. This allows usage of the paramstore to set parameters in different 
-nodes of the experiment. 
-Checkout of a commit that is appropriate to a specific node can be used to set parameters suitable for that node. 
+[//]: # ()
+[//]: # (A param store can be saved as a resource for an entropy graph. This allows usage of the paramstore to set parameters in different )
+
+[//]: # (nodes of the experiment. )
+
+[//]: # (Checkout of a commit that is appropriate to a specific node can be used to set parameters suitable for that node. )
 
 
 
