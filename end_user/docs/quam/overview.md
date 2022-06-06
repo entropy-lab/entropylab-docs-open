@@ -141,7 +141,6 @@ Let us consider a sample calibration graph involving two nodes: 1) play a consta
     db_file_path = 'params.db'
 
     manager = MyManager(path=db_file_path)
-    admin.set(lo=5e5)
     manager.param_store["lo"] = 5e5
     manager.param_store.save_temp()
 
