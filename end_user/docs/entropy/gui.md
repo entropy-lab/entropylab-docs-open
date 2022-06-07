@@ -17,7 +17,7 @@ The table can be filtered through any of its columns. Advanced filtering syntax 
 
  ![The results dashboard](../assets/results_dashboard.png)
 
-### `--debug`
+### Dashboard `--debug` option
 
 The web GUI has an error logging option. This is triggered by serving the dashboard with `entropy serve --debug`. 
 Doing this generates a fairly verbose log file in the `.entropy` folder. 
