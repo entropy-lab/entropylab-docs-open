@@ -70,12 +70,12 @@ nav:
       - Getting started: "entropy/getting_started.md"
       - An entropy project: "entropy/project.md"
       - The dashboard: "entropy/gui.md"
-      - Examples : "entropy/examples.md"
+
   - Pipeline:
     - The experiment graph: "pipeline/getting_started.md"
     - The context: "pipeline/entropy_context.md"
     - Entropy & QUA: "pipeline/entropy_qua.md"
-    - Plotting: "pipeline/plotting.md"
+    - Examples : "entropy/examples.md"
   - QuAM:
     - Overview: "quam/overview.md"
     - ParameterStore: "paramstore/overview.md"
