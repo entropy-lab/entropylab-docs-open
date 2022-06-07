@@ -62,3 +62,76 @@ experiment.dot_graph()
 For `qb_num=3` the output graph is as follows: 
 
 ![graph_prog](../assets/entropy-graph-programmatic.jpg)
+
+
+## Using external devices in a node
+
+Using external devices in an Entropy node is done via the EntropyContext. 
+User associate a resource to the entropy labResources database, either permanently or temporarily, and then use them inside nodes. 
+
+The first step is to write an instrument driver. This can inherit from `Resource` but that's not a hard requirement. 
+An example mock driver is shown below:
+
+```python
+
+from entropylab.instruments.instrument_driver import Resource
+
+class MockScope(Resource):
+    def __init__(self, address: str, extra: str, **kwargs):
+        super().__init__(**kwargs)
+        self.index = 0
+        self.address = address
+        self.extra = extra
+
+    def connect(self):
+        
+        print('Connected!')
+
+    def teardown(self):
+        pass
+
+    def get_trig(self):
+        self.index += 1
+        print(f"got trig {self.index}")
+
+    def snapshot(self, update: bool) -> str:
+        return str(self.index)
+
+    def revert_to_snapshot(self, snapshot: str):
+        self.index = int(snapshot)
+
+```
+
+This driver can then be associated with the lab resources. Below is an example of doing this temporarily, on a per-experiment basis. 
+```python
+db = SqlAlchemyDB(path='.')
+labResources = ExperimentResources(db)
+labResources.add_temp_resource(
+    "scope_1", MockScope("1.1.1.1", "")
+)
+```
+You then write the experiment node functions in the regular way, passing the `context` to each node that needs to have instrument access.
+
+```python
+ 
+def work_with_scope(context: EntropyContext):
+    scope = context.get_resource('scope_1')
+    scope.connect()
+    scope.get_trig()
+    return {'res': [0, 1, 2, 3, 4]}
+
+def work_with_scope_again(context: EntropyContext):
+    scope = context.get_resource('scope_1')
+    scope.connect()
+    scope.get_trig()
+    
+    return {'res': [0, 1, 5, 3, 4]}
+
+
+node1 = PyNode(label="first_node", program=work_with_scope, output_vars={'res'})
+node2 = PyNode(label="first_node", program=work_with_scope_again, output_vars={'res'})
+experiment = Graph(resources=labResources, graph={node1,node2}, story="a scope", label='experiment with instruments')
+handle = experiment.run()
+```
+
+
