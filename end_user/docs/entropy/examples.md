@@ -135,7 +135,7 @@ handle = experiment.run()
 ```
 
 
-# plots in entropylab 
+## Plots in Entropylab 
 
 When you run a pipeline graph, you collect data which you may want to plot and show in the results browser.
 
@@ -144,7 +144,7 @@ This give you reponsive, rather than static, plots. In addition `plotly` plots a
 was technically superior to some alternatives. Additional plotting backends can and will be implemented later on. Tell
 us which ones you are most keen on seeing. 
 
-## Adding plots 
+### Adding plots 
 
 You can add as many plots as you'd like to the node.  
 
