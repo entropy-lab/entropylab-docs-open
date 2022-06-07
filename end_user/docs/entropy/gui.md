@@ -1,10 +1,10 @@
-# entropylab web GUI
+# Entropylab Web GUI
 The results GUI is a web interface for viewing measurement results. To access the GUI, open the command line and `cd` 
 into a valid entropy project directory (or into your desired working directory, even if it's not currently an entropy project). 
 Typing `entropy serve ↩` will bring up a webserver with the GUI. You can now view the application by starting any web browser  
 and navigating to `localhost:8050`.
 
-# The results dashboard
+# The Results Dashboard
 The main window of the application is the results dashboard. 
 
 Here you can view any plot associated with experiments that were run and saved to the database. 
@@ -16,6 +16,11 @@ screen.
 The table can be filtered through any of its columns. Advanced filtering syntax can be found [here](https://dash.plotly.com/datatable/filtering).
 
  ![The results dashboard](../assets/results_dashboard.png)
+
+### `--debug`
+
+The web GUI has an error logging option. This is triggered by serving the dashboard with `entropy serve --debug`. 
+Doing this generates a fairly verbose log file in the `.entropy` folder. 
 
 ## ParamStore dashboard
 
