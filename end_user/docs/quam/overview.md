@@ -6,7 +6,7 @@ Quantum Abstract Machine (QuAM)  is an abstraction layer to help describe the po
 
 ### Terminology
 
-**ParamStore** -  The QuAM manages parameters in a ParamStore, a database where users can save (commit) the values of all parameters associated with the QuAM. A commit operation can be labeled with a name identifying it. The ParamStore state can be reverted to any previously committed state, similar to a GIT project. Unlike a GIT project, forking is not supported. 
+**ParamStore** -  The QuAM manages parameters in a [ParamStore](../paramstore/overview.md), a database where users can save (commit) the values of all parameters associated with the QuAM. A commit operation can be labeled with a name identifying it. The ParamStore state can be reverted to any previously committed state, similar to a GIT project. Unlike a GIT project, forking is not supported.
 
 **ConfigBuilder** - The [config builder](config_builder.md) is an abstraction above the QUA configuration. It enables describing elements in the QUA configuration in an object oriented way and generates the QUA config dictionary. QuAM uses ConfigBuilder when elements are added to it.
 
@@ -28,7 +28,7 @@ Both personas have access to a ParamStore database to save and retrieve experime
 
 ### QuAMManager
 
-An administrator initializes and defines the QUA configuration to run the experiments:
+A lab manager initializes and defines the QUA configuration to run the experiments:
 
 ```python 
     from qualang_tools.config.components import *
@@ -78,7 +78,7 @@ An administrator initializes and defines the QUA configuration to run the experi
     print(manager.generate_config())
 ```
 
-The administrator class is initialized simply by passing the path to a persistent DB to which all the parameters needed to run the experiment are saved. All objects needed to generate QUA configuration can be added to the `ConfigBuilder` object, config can be generated, once the `Parameter`s are set (or reset) by the administrator. Administrator implements the `prepare_config` method. In this specific example, a `controller` and a `Transmon` are added. The administrator fills in information about, for example, the physical ports that connect the OPX to the IQ mixer. The adminstrator parametrizes the local oscillator frequency of the transmon with the parameter `lo`.
+The manager class is initialized simply by passing the path to a persistent DB to which all the parameters needed to run the experiment are saved. All objects needed to generate QUA configuration can be added to the `ConfigBuilder` object, config can be generated, once the `Parameter`s are set (or reset) by the administrator. Administrator implements the `prepare_config` method. In this specific example, a `controller` and a `Transmon` are added. The administrator fills in information about, for example, the physical ports that connect the OPX to the IQ mixer. The adminstrator parametrizes the local oscillator frequency of the transmon with the parameter `lo`.
 
 
 # QuAM
@@ -101,8 +101,7 @@ quam can be used to write the QUA program using the attributes: pulses, elements
 
 QuAM is intended to be used as a module that the lab manager can version and distribute to the users. Users can then import from this module (for e.g. quam object) and use it in the PyNode programs.
 
-
-# Example
+## Example
 
 Let us consider a sample calibration graph involving two nodes: 1) play a constant waveform and update a parameter in the config dictiornary and 2) print the latest config. The lab manager implements a sample module (`module.py`) as follows
 
@@ -157,7 +156,7 @@ Let us consider a sample calibration graph involving two nodes: 1) play a consta
     quam = manager.open_quam()
 ```
 
-The user can then import `quam` object from the module and use it any regular `PyNode` as follows,
+The user can then import `quam` object from the module and use it in any regular `PyNode` as follows,
 
 
 ```python

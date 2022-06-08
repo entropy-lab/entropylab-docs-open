@@ -102,8 +102,7 @@ In general, to interface with any experimental device you would need a collectio
 ## ConfigBuilder
 ----------------
 
-Add all components to the `ConfigBuilder`. The configuration is generated at the very end upon calling the `build` method. Therefore, the precise order in which you add the objects to `ConfigBuilder` is not important. Modifications to the objects already added to the `ConfigBuilder` are reflected in the final configuration. However, note that consistency checks between different components are not done within the builder. The validity of the configuration is verified by the compiler when you eventually run the QUA program.
-For more details, check the examples in `qua-libs/examples/config-builder/`.
+Add all components to the `ConfigBuilder`. The configuration is generated at the very end upon calling the `build` method. Therefore, the precise order in which you add the objects to `ConfigBuilder` is not important. Modifications to the objects already added to the `ConfigBuilder` are reflected in the final configuration. However, note that consistency checks between different components are not done within the builder. 
 
 ## Parameters
 --------------

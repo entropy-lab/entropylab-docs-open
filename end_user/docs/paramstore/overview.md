@@ -12,9 +12,10 @@ We may wish to implement a paramstore with some powerful DB like mongoDB or Post
 based implementation. This first implementation is the `InProcessParamStore`. You can use it as follows
 
 ```python
-from entropylab.api.in_process_param_store import InProcessParamStore
-db_dir = ‘.’
-db_name = ‘params.json’
+import os
+from entropylab import InProcessParamStore
+db_dir = '.'
+db_name = 'params.json'
 db_path = os.path.join(db_dir, db_name)
 params = InProcessParamStore(db_path)
 params =InProcessParamStore()
@@ -24,7 +25,7 @@ If no path is supplied to the constructor of this class, no persistence will occ
 However, if a path is supplied a persistent json file `params.json` containing the DB will be generated in the current working directory.  
 To initialize a paramstore in the current entropy directory, you can also initialize the paramstore as follows: 
 ```python
-from entropylab.api.in_process_param_store import InProcessParamStore
+from entropylab import InProcessParamStore
 params =InProcessParamStore('.')
 ```
 
@@ -82,8 +83,12 @@ params.list_keys_for_tag('qubit1')
 Which should yield `['a', 'b']`.
 
 
-The tag mechanism allows the paramstore to have more structure. Instead of a flat key-value collection,
-multiple keys can be combined. 
+The tag mechanism allows the paramstore to have more structure. Instead of a flat key-value collection, multiple keys can be combined. Alternatively, you can also use a nested dictionary to group together variables that belong to a given category, for example,
+
+```python
+params = InProcessParamStore()
+params.qubit1={"a":1, "b":2}
+```
 
 
 

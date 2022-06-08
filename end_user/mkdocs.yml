@@ -79,6 +79,7 @@ nav:
     - API : "pipeline/API.md"
   - QuAM:
     - Overview: "quam/overview.md"
+    - ConfigBuilder: "quam/config_builder.md"
     - ParameterStore: "paramstore/overview.md"
     - QuAM API: "quam/quam_api.md"
     - ParamStore API: "paramstore/ParamStoreAPI.md"
