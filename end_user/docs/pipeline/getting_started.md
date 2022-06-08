@@ -75,7 +75,7 @@ handle = experiment.run()
 ```
 
 "What's with the `WARNING`?" you may ask. Because we didn't define
-any `resources`, and we don\'t have a backend for result saving defined,
+any `resources`, and we don't have a backend for result saving defined,
 Entropy warns us we will not have any persistence (nothing will be saved
 for posterity). We will address this issue soon. Regardless, while in
 the python session, we can access the (wholly unspectacular) experiment
@@ -94,7 +94,7 @@ returned in a list, that list is made of a certain type of object and so
 on. We will go into more detail later but will gloss over this for now.
 
 To view the graph, you need to have `graphviz` installed ([installation
-guide](https://graphviz.org/download/)). If it\'s properly installed on
+guide](https://graphviz.org/download/)). If it's properly installed on
 your environment, you can view the graph as follows:
 
 ```.python
