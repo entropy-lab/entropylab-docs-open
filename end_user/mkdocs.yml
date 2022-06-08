@@ -76,10 +76,12 @@ nav:
     - The context: "pipeline/entropy_context.md"
     - Entropy & QUA: "pipeline/entropy_qua.md"
     - Examples : "entropy/examples.md"
+    - API : "pipeline/API.md"
   - QuAM:
     - Overview: "quam/overview.md"
     - ParameterStore: "paramstore/overview.md"
-#    - API: "paramstore/api.md"
+    - QuAM API: "quam/quam_api.md"
+    - ParamStore API: "paramstore/ParamStoreAPI.md"
 #  - Guide for contributors: "contribute/overview.md"
 plugins:
   - search
