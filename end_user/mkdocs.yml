@@ -90,6 +90,8 @@ plugins:
       handlers:
         python:
           paths: [.]
+          options:
+            docstring_style: sphinx
 
 markdown_extensions:
   - pymdownx.emoji:
