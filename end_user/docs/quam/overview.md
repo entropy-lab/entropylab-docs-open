@@ -17,9 +17,9 @@ Quantum Abstract Machine (QuAM)  is an abstraction layer to help describe the po
 
 The QuAM API is split between 2 different personas: 👷 **QuAMManager**, **🥼 QuAM**.
  
-**👷 QuAMManager** - This is used by the person who sets up the lab. They know about all the instruments in the lab and have connected things together. They builder knows which output port of a voltage source is connected to the qubit flux line. The builder knows which input port of the OPX is connected to the downconversion mixer. The builder probably knows how to write a QUA config manually.
+**👷 QuAMManager** - This is used by the person who sets up the lab. They know about all the instruments in the lab and have connected things together. The builder knows which output port of a voltage source is connected to the qubit flux line. The builder knows which input port of the OPX is connected to the downconversion mixer. The builder probably knows how to write a QUA config manually.
 
-**🥼 QuAM** - This is used by the person who is running experiments, knows the physics but doesn't want to spend their time on learning how the lab is hooked up (unless where necessary). They want to write experiments where they measure some physical parameter as a function or one or more other physical parameters. For example, they want to measure resonant frequency of a transmon as a function of flux line set point and XY drive power.
+**🥼 QuAM** - This is used by the person who is running experiments, knows the physics but doesn't want to spend their time on learning how the lab is hooked up (unless where necessary). They want to write experiments where they measure some physical parameters as a function of one or more other physical parameters. For example, they want to measure resonant frequency of a transmon as a function of flux line set point and XY drive power.
 
 Both personas have access to a ParamStore database to save and retrieve experimental parameters or data.
 
