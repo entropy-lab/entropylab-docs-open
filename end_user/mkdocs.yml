@@ -83,6 +83,7 @@ nav:
     - ParameterStore: "paramstore/overview.md"
     - QuAM API: "quam/quam_api.md"
     - ParamStore API: "paramstore/ParamStoreAPI.md"
+    - ConfigBuilder API: "quam/config_builder_api.md"
 #  - Guide for contributors: "contribute/overview.md"
 plugins:
   - search

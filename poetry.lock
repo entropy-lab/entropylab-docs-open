@@ -928,6 +928,17 @@ Markdown = ">=3.3"
 mkdocs = ">=1.1"
 
 [[package]]
+name = "mkdocs-exclude-search"
+version = "0.6.4"
+description = "A mkdocs plugin that lets you exclude selected files or sections from the search index."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+mkdocs = ">=1.0.4"
+
+[[package]]
 name = "mkdocs-material"
 version = "8.2.14"
 description = "Documentation that simply works"
@@ -1625,7 +1636,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7.1, <3.10"
-content-hash = "e300c73d77cabbf2e803f53051feb0c0a01c423541e8a3131af4701db0ff89d1"
+content-hash = "de103a4ec0507d637c22431b46a00f64b40e488afe92e91ff54d98c43535f84a"
 
 [metadata.files]
 alembic = [
@@ -2294,6 +2305,10 @@ mkdocs = [
 mkdocs-autorefs = [
     {file = "mkdocs-autorefs-0.4.1.tar.gz", hash = "sha256:70748a7bd025f9ecd6d6feeba8ba63f8e891a1af55f48e366d6d6e78493aba84"},
     {file = "mkdocs_autorefs-0.4.1-py3-none-any.whl", hash = "sha256:a2248a9501b29dc0cc8ba4c09f4f47ff121945f6ce33d760f145d6f89d313f5b"},
+]
+mkdocs-exclude-search = [
+    {file = "mkdocs-exclude-search-0.6.4.tar.gz", hash = "sha256:1c4021509116636b109b37e4b535d043fdbb888c2281f07ff2895386ca52dcc2"},
+    {file = "mkdocs_exclude_search-0.6.4-py3-none-any.whl", hash = "sha256:ed5f93efef1b7a253856a040f5f23e6b9b8e6e4c9f8f0413691aa29b3478ffbe"},
 ]
 mkdocs-material = [
     {file = "mkdocs-material-8.2.14.tar.gz", hash = "sha256:413c349ef531ffe9f2eab6c8a71203fb0a7ebdc301ab9a2529ddd90c173673de"},
